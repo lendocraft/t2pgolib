@@ -20,30 +20,36 @@ const (
 	APPLOG = "APPLOG"
 )
 
-var logHandle *LoggerHandle
-var loginstance *log.Logger
+var (
+	logHandle   *LoggerHandle
+	loginstance *log.Logger
+)
 
-type Type string
-type t2pLogInfo struct {
-	//can change after init
-	servicename string
-	traceID     string
-	spanID      string
-	token       string
-	apiKey      string
-	pathURI     string
-	method      string
-	// message      string
-	// info         string
-	// logType      string
-	environment  string
-	responseTime int
-	// caller    string
-	// indexname string
+type (
+	Type       string
+	t2pLogInfo struct {
+		// can change after init
+		servicename string
+		traceID     string
+		spanID      string
+		token       string
+		apiKey      string
+		pathURI     string
+		method      string
+		// message      string
+		// info         string
+		// logType      string
+		environment  string
+		responseTime int
+		// caller    string
+		// indexname string
 
-	// 	"level":"LOG_LEVEL" -with function call
-	// 	"LogDateTime":""    -with function call
-}
+		// 	"level":"LOG_LEVEL" -with function call
+		// 	"LogDateTime":""    -with function call
+		customer string
+		version  string
+	}
+)
 
 type LoggerHandle struct {
 	log     *log.Logger
@@ -51,7 +57,6 @@ type LoggerHandle struct {
 }
 
 func New(serviceName string, env string, logPathPrefix ...string) *LoggerHandle {
-
 	if logHandle != nil {
 		return logHandle
 	}
@@ -172,10 +177,12 @@ func (l *LoggerHandle) fields(ltype string, info string) log.Fields {
 		"json.pathuri":      l.logInfo.pathURI,
 		"json.responseTime": l.logInfo.responseTime,
 		"json.servicename":  l.logInfo.servicename,
+		"json.version":      l.logInfo.version,
 		"json.spanid":       l.logInfo.spanID,
 		"json.token":        l.logInfo.token,
 		"json.traceid":      l.logInfo.traceID,
 		"json.type":         ltype,
+		"json.customer":     l.logInfo.customer,
 		"logversion":        "v2",
 	}
 }
@@ -253,8 +260,17 @@ func (l *LoggerHandle) SetTraceID(trace string) *LoggerHandle {
 	return l
 }
 
-func removeTrailSlash(path string, withPrefix string) string {
+func (l *LoggerHandle) SetVersion(version string) *LoggerHandle {
+	l.logInfo.version = version
+	return l
+}
 
+func (l *LoggerHandle) SetCustomer(customer string) *LoggerHandle {
+	l.logInfo.customer = customer
+	return l
+}
+
+func removeTrailSlash(path string, withPrefix string) string {
 	path = strings.Map(func(r rune) rune {
 		if unicode.IsPrint(r) {
 			return r
