@@ -46,8 +46,10 @@ type (
 
 		// 	"level":"LOG_LEVEL" -with function call
 		// 	"LogDateTime":""    -with function call
-		customer string
-		version  string
+		version string
+		cif     string
+		mobile  string
+		idcard  string
 	}
 )
 
@@ -182,7 +184,9 @@ func (l *LoggerHandle) fields(ltype string, info string) log.Fields {
 		"json.token":        l.logInfo.token,
 		"json.traceid":      l.logInfo.traceID,
 		"json.type":         ltype,
-		"json.customer":     l.logInfo.customer,
+		"json.cif":          l.logInfo.cif,
+		"json.mobile":       l.logInfo.mobile,
+		"json.idcard":       l.logInfo.idcard,
 		"logversion":        "v2",
 	}
 }
@@ -265,8 +269,18 @@ func (l *LoggerHandle) SetVersion(version string) *LoggerHandle {
 	return l
 }
 
-func (l *LoggerHandle) SetCustomer(customer string) *LoggerHandle {
-	l.logInfo.customer = customer
+func (l *LoggerHandle) SetCIF(cif string) *LoggerHandle {
+	l.logInfo.cif = cif
+	return l
+}
+
+func (l *LoggerHandle) SetMobile(mobile string) *LoggerHandle {
+	l.logInfo.mobile = mobile
+	return l
+}
+
+func (l *LoggerHandle) SetIDCard(idcard string) *LoggerHandle {
+	l.logInfo.idcard = idcard
 	return l
 }
 
