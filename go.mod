@@ -1,19 +1,27 @@
-module github.com/t2pcorp/t2pgolib
+module github.com/lendocraft/t2pgolib
 
-go 1.16
+go 1.23.2
 
 require (
-	github.com/aws/aws-sdk-go v1.40.59
-	github.com/go-resty/resty/v2 v2.7.0
-	github.com/jonboulle/clockwork v0.3.0 // indirect
-	github.com/kr/pretty v0.2.0 // indirect
+	github.com/aws/aws-sdk-go v1.55.6
+	github.com/go-resty/resty/v2 v2.16.5
 	github.com/lestrrat-go/file-rotatelogs v2.4.0+incompatible
-	github.com/lestrrat-go/strftime v1.0.6 // indirect
 	github.com/rifflock/lfshook v0.0.0-20180920164130-b9218ef580f5
-	github.com/sirupsen/logrus v1.9.0
-	github.com/stretchr/testify v1.7.0
+	github.com/sirupsen/logrus v1.9.3
+	github.com/stretchr/testify v1.10.0
+	github.com/t2pcorp/t2pgolib v1.0.15
 	go.elastic.co/ecslogrus v1.0.0
-	gopkg.in/check.v1 v1.0.0-20190902080502-41f04d3bba15 // indirect
 	gopkg.in/go-playground/assert.v1 v1.2.1
-	gopkg.in/yaml.v2 v2.4.0 // indirect
+)
+
+require (
+	github.com/davecgh/go-spew v1.1.1 // indirect
+	github.com/jmespath/go-jmespath v0.4.0 // indirect
+	github.com/lestrrat-go/strftime v1.0.6 // indirect
+	github.com/magefile/mage v1.9.0 // indirect
+	github.com/pkg/errors v0.9.1 // indirect
+	github.com/pmezard/go-difflib v1.0.0 // indirect
+	golang.org/x/net v0.33.0 // indirect
+	golang.org/x/sys v0.28.0 // indirect
+	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
