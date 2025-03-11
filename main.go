@@ -2,7 +2,7 @@ package main
 
 import (
 	// "fmt"
-	jobLib "github.com/t2pcorp/t2pgolib/jobLibrary"
+	jobLib "github.com/lendocraft/t2pgolib/jobLibrary"
 )
 
 func main() {
