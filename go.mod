@@ -9,7 +9,6 @@ require (
 	github.com/rifflock/lfshook v0.0.0-20180920164130-b9218ef580f5
 	github.com/sirupsen/logrus v1.9.3
 	github.com/stretchr/testify v1.10.0
-	github.com/lendocraft/t2pgolib v1.0.15
 	go.elastic.co/ecslogrus v1.0.0
 	gopkg.in/go-playground/assert.v1 v1.2.1
 )
@@ -17,6 +16,7 @@ require (
 require (
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/jmespath/go-jmespath v0.4.0 // indirect
+	github.com/jonboulle/clockwork v0.5.0 // indirect
 	github.com/lestrrat-go/strftime v1.0.6 // indirect
 	github.com/magefile/mage v1.9.0 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
