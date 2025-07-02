@@ -50,6 +50,7 @@ type (
 		cif     string
 		mobile  string
 		idcard  string
+		caseid  string
 	}
 )
 
@@ -185,6 +186,7 @@ func (l *LoggerHandle) fields(ltype string, info string) log.Fields {
 		"json.traceid":      l.logInfo.traceID,
 		"json.type":         ltype,
 		"json.cif":          l.logInfo.cif,
+		"json.caseid":       l.logInfo.caseid,
 		"json.mobile":       l.logInfo.mobile,
 		"json.idcard":       l.logInfo.idcard,
 		"logversion":        "v2",
@@ -271,6 +273,11 @@ func (l *LoggerHandle) SetVersion(version string) *LoggerHandle {
 
 func (l *LoggerHandle) SetCIF(cif string) *LoggerHandle {
 	l.logInfo.cif = cif
+	return l
+}
+
+func (l *LoggerHandle) SetCaseID(caseid string) *LoggerHandle {
+	l.logInfo.caseid = caseid
 	return l
 }
 
